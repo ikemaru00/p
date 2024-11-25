@@ -7,7 +7,7 @@ public class Bulet : MonoBehaviour
     [SerializeField,Header("’e–ò‚Ì‘¬“x")]
     private float _speed;
     [SerializeField, Header("’e‚ÌˆÐ—Í")]
-    private int _speer;
+    private int _power;
 
     private Rigidbody2D _rigid;
 
@@ -20,7 +20,7 @@ public class Bulet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        _Move();
     }
 
     private void _Move()
