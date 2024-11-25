@@ -11,6 +11,9 @@ public class Player : MonoBehaviour
     private GameObject _bullet;
     [SerializeField, Header("’e‚ð”­ŽË‚·‚éŽžŠÔ")]
     private float _shootTime;
+    [SerializeField, Header("‘Ì—Í")]
+    private int _hp;
+
 
     private Vector2 _inputVelocity;
     private Rigidbody2D _rigid;
@@ -43,8 +46,25 @@ public class Player : MonoBehaviour
         bulletObj.transform.position = transform.position + new Vector3(0f, transform.lossyScale.y/2.0f,0f);
         _shootCount = 0.0f;
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Bullet")
+        {
+            _hp -= 1;
+            if(_hp <= 0)
+            {
+                Destroy(gameObject);
+            }
+        }
+    }
+
     public void OnMove(InputAction.CallbackContext context)
     {
         _inputVelocity = context.ReadValue<Vector2>();        
+    }
+
+    public int GetHP()
+    {
+        return _hp;
     }
 }

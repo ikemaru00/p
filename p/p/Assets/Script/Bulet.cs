@@ -27,4 +27,12 @@ public class Bulet : MonoBehaviour
     {
         _rigid.velocity = transform.up * _speed;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Enemy")
+        {
+            Destroy(gameObject);
+        }
+    }
 }
