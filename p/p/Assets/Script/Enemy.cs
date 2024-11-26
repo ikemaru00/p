@@ -5,19 +5,19 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField, Header("弾オブジェクト")]
-    private GameObject _bullet;
+    protected GameObject[] _bullet;
     [SerializeField, Header("弾を発射する時間")]
-    private float _shootTime;
+    protected float _shootTime;
     [SerializeField, Header("体力")]
     private int _hp;
-    [SerializeField, Header("移動速度   ")]
+    [SerializeField, Header("移動速度")]
     private float _moveSpeed;
 
 
-    private GameObject _player;
-    private Rigidbody2D _rigid;
-    private float _shootCount;
-    private bool _bAttack;
+    protected GameObject _player;
+    protected Rigidbody2D _rigid;
+    protected float _shootCount;
+    protected bool _bAttack;
 
 
     // Start is called before the first frame update
@@ -30,27 +30,25 @@ public class Enemy : MonoBehaviour
         _shootCount = 0;
         _bAttack = false;
         _rigid = GetComponent<Rigidbody2D>();
+        _Initialize();
+    }
+    protected virtual void _Initialize()
+    {
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        _Shooting();
         _Move();
+        _Attack();
     }
-    private void _Shooting()
+   
+    protected virtual void _Attack()
     {
-        if (_player == null) return;
-
-        _shootCount += Time.deltaTime;
-        if (_shootCount < _shootTime) return;
-
-        GameObject bulletObj = Instantiate(_bullet);
-        bulletObj.transform.position = transform.position;
-        Vector3 dir = _player.transform.position - transform.position;
-        bulletObj.transform.rotation = Quaternion.FromToRotation(transform.up, dir);
-        _shootCount = 0.0f;
+       
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Bullet")
@@ -62,7 +60,7 @@ public class Enemy : MonoBehaviour
             }
         }
     }
-    private void _Move()
+    protected virtual void _Move()
     {
         _rigid.velocity = Vector2.down *  _moveSpeed;
     }
