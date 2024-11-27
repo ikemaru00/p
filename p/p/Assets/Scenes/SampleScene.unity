@@ -226,7 +226,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -782,24 +782,60 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -7562010590065179398, guid: 9715b52019437bb429cc16c327c3cfe0, type: 3}
+      propertyPath: _LRRange
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: -7562010590065179398, guid: 9715b52019437bb429cc16c327c3cfe0, type: 3}
+      propertyPath: _LRSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -7562010590065179398, guid: 9715b52019437bb429cc16c327c3cfe0, type: 3}
       propertyPath: _limitPoyY
       value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: -7562010590065179398, guid: 9715b52019437bb429cc16c327c3cfe0, type: 3}
+      propertyPath: _ougiAngle
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: -7562010590065179398, guid: 9715b52019437bb429cc16c327c3cfe0, type: 3}
+      propertyPath: _LRShootTime
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7562010590065179398, guid: 9715b52019437bb429cc16c327c3cfe0, type: 3}
+      propertyPath: _LRAttackTime
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: -7562010590065179398, guid: 9715b52019437bb429cc16c327c3cfe0, type: 3}
+      propertyPath: _ougiBulleNum
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -7562010590065179398, guid: 9715b52019437bb429cc16c327c3cfe0, type: 3}
+      propertyPath: _ougiAttackCount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -7562010590065179398, guid: 9715b52019437bb429cc16c327c3cfe0, type: 3}
       propertyPath: _bullet.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -7562010590065179398, guid: 9715b52019437bb429cc16c327c3cfe0, type: 3}
       propertyPath: _bullet.Array.data[0]
       value: 
       objectReference: {fileID: 605993979015645875, guid: 1bcd71275e4f2c945a25a66eee2a3194, type: 3}
+    - target: {fileID: -7562010590065179398, guid: 9715b52019437bb429cc16c327c3cfe0, type: 3}
+      propertyPath: _bullet.Array.data[1]
+      value: 
+      objectReference: {fileID: 8698755672380714450, guid: f081aabb95f5cfe409c589c4cadfe065, type: 3}
+    - target: {fileID: -7562010590065179398, guid: 9715b52019437bb429cc16c327c3cfe0, type: 3}
+      propertyPath: _bullet.Array.data[2]
+      value: 
+      objectReference: {fileID: 6711006353205793968, guid: 5ba3cad34a2650b4a889342e57f925f8, type: 3}
     - target: {fileID: 2252217290387809399, guid: 9715b52019437bb429cc16c327c3cfe0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.05
+      value: -0.2
       objectReference: {fileID: 0}
     - target: {fileID: 2252217290387809399, guid: 9715b52019437bb429cc16c327c3cfe0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.51
+      value: 7.91
       objectReference: {fileID: 0}
     - target: {fileID: 2252217290387809399, guid: 9715b52019437bb429cc16c327c3cfe0, type: 3}
       propertyPath: m_LocalPosition.z
