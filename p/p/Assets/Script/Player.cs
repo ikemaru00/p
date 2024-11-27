@@ -13,11 +13,21 @@ public class Player : MonoBehaviour
     private float _shootTime;
     [SerializeField, Header("体力")]
     private int _hp;
+    [SerializeField, Header("点滅時間")]
+    private float _damageTime;
+    [SerializeField, Header("点滅周期")]
+    private float _damageCycle;
+    [SerializeField, Header("死亡エフェクト")]
+    private GameObject _deadEffect;
 
 
     private Vector2 _inputVelocity;
     private Rigidbody2D _rigid;
+    private SpriteRenderer _spriteRenderer;
+    private GameManager _gameManager;
     private float _shootCount;
+    private float _damageTimeCount;
+    private bool _bDamege;
 
 
     // Start is called before the first frame update    void Start()
@@ -25,13 +35,19 @@ public class Player : MonoBehaviour
     {
         _inputVelocity = Vector2.zero;
         _rigid = GetComponent<Rigidbody2D>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _gameManager = FindObjectOfType<GameManager>();
         _shootCount = 0;
+        _damageTimeCount = 0;
+        _bDamege = false;
+        
     }
     // Update is called once per frame
     void Update()
     {
         _Move();
         _Shooting();
+        _Damage();
     }
     private void _Move()
     {
@@ -50,11 +66,35 @@ public class Player : MonoBehaviour
     {
         if(collision.gameObject.tag == "Bullet" || collision.gameObject.tag == "Enemy")
         {
-            _hp -= 1;
-            if(_hp <= 0)
+            if(! _bDamege)
             {
-                Destroy(gameObject);
+                _hp -= 1;
+                _bDamege = true;
+                if (_hp <= 0)
+                {
+                    Destroy(gameObject);
+                    Instantiate(_deadEffect, transform.position, Quaternion.identity);
+                    _gameManager.DeadEffect();
+                }
             }
+         
+        }
+    }
+
+    private void _Damage()
+    {
+        if (!_bDamege) return;
+
+        _damageTimeCount += Time.deltaTime;
+
+        float value = Mathf.Repeat(_damageTimeCount, _damageCycle);
+        _spriteRenderer.enabled = value >= _damageCycle * 0.5f;
+
+        if(_damageTimeCount >= _damageTime)
+        {
+            _damageTimeCount = 0;
+            _spriteRenderer.enabled = true;
+            _bDamege = false;
         }
     }
 
@@ -66,5 +106,10 @@ public class Player : MonoBehaviour
     public int GetHP()
     {
         return _hp;
+    }
+
+    public bool IsDamage()
+    {
+        return _bDamege;
     }
 }

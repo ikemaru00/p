@@ -254,6 +254,8 @@ MonoBehaviour:
   _bullet: {fileID: 7287133702384184964, guid: e26c79b4abf572e4d8b8c77cdc3b77c5, type: 3}
   _shootTime: 100
   _hp: 5
+  _damageTime: 1
+  _damageCycle: 0.25
 --- !u!114 &61590938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -810,12 +812,24 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: -7562010590065179398, guid: 9715b52019437bb429cc16c327c3cfe0, type: 3}
+      propertyPath: _circleBulletNum
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: -7562010590065179398, guid: 9715b52019437bb429cc16c327c3cfe0, type: 3}
+      propertyPath: _circleShootTime
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -7562010590065179398, guid: 9715b52019437bb429cc16c327c3cfe0, type: 3}
       propertyPath: _ougiAttackCount
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -7562010590065179398, guid: 9715b52019437bb429cc16c327c3cfe0, type: 3}
+      propertyPath: _circleBulletTime
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -7562010590065179398, guid: 9715b52019437bb429cc16c327c3cfe0, type: 3}
       propertyPath: _bullet.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: -7562010590065179398, guid: 9715b52019437bb429cc16c327c3cfe0, type: 3}
       propertyPath: _bullet.Array.data[0]
@@ -829,6 +843,10 @@ PrefabInstance:
       propertyPath: _bullet.Array.data[2]
       value: 
       objectReference: {fileID: 6711006353205793968, guid: 5ba3cad34a2650b4a889342e57f925f8, type: 3}
+    - target: {fileID: -7562010590065179398, guid: 9715b52019437bb429cc16c327c3cfe0, type: 3}
+      propertyPath: _bullet.Array.data[3]
+      value: 
+      objectReference: {fileID: 8827211865303099550, guid: 657f1e30d6d17014a8a3228992dbeb3c, type: 3}
     - target: {fileID: 2252217290387809399, guid: 9715b52019437bb429cc16c327c3cfe0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.2
