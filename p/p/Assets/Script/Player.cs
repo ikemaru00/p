@@ -58,7 +58,7 @@ public class Player : MonoBehaviour
     }
     private void _Shooting()
     {
-        Debug.Log(_shootCount);
+        //Debug.Log(_shootCount);
         _shootCount += Time.deltaTime;
         if (_shootCount < _shootTime) return;
 
