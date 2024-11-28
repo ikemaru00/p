@@ -53,7 +53,7 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.tag == "Bullet")
         {
-            _hp -= 1;
+            _hp -= collision.gameObject.GetComponent<Bulet>().GetPower();
             if (_hp <= 0)
             {
                 Destroy(gameObject);

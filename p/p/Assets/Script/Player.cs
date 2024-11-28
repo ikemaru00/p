@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,6 +26,7 @@ public class Player : MonoBehaviour
     private Rigidbody2D _rigid;
     private SpriteRenderer _spriteRenderer;
     private GameManager _gameManager;
+    private CinemachineImpulseSource _shaker;
     private float _shootCount;
     private float _damageTimeCount;
     private bool _bDamege;
@@ -37,6 +39,7 @@ public class Player : MonoBehaviour
         _rigid = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _gameManager = FindObjectOfType<GameManager>();
+        _shaker = FindAnyObjectByType<CinemachineImpulseSource>();
         _shootCount = 0;
         _damageTimeCount = 0;
         _bDamege = false;
@@ -55,6 +58,7 @@ public class Player : MonoBehaviour
     }
     private void _Shooting()
     {
+        Debug.Log(_shootCount);
         _shootCount += Time.deltaTime;
         if (_shootCount < _shootTime) return;
 
@@ -66,18 +70,7 @@ public class Player : MonoBehaviour
     {
         if(collision.gameObject.tag == "Bullet" || collision.gameObject.tag == "Enemy")
         {
-            if(! _bDamege)
-            {
-                _hp -= 1;
-                _bDamege = true;
-                if (_hp <= 0)
-                {
-                    Destroy(gameObject);
-                    Instantiate(_deadEffect, transform.position, Quaternion.identity);
-                    _gameManager.DeadEffect();
-                }
-            }
-         
+            _Hit(collision.gameObject);
         }
     }
 
@@ -96,6 +89,30 @@ public class Player : MonoBehaviour
             _spriteRenderer.enabled = true;
             _bDamege = false;
         }
+    }
+
+    private void _Hit(GameObject hitObj)
+    {
+        if (_bDamege) return;
+
+        if(hitObj.tag == "Bullet")
+        {
+            _hp -= hitObj.GetComponent<Bulet>().GetPower();
+        }
+        else if (hitObj.tag == "Enemy")
+        {
+            _hp -= 1;
+        }
+
+        _bDamege = true;
+        if (_hp <= 0)
+        {
+            Destroy(gameObject);
+            Instantiate(_deadEffect, transform.position, Quaternion.identity);
+            _gameManager.DeadEffect();
+            _shaker.GenerateImpulse();
+        }
+
     }
 
     public void OnMove(InputAction.CallbackContext context)

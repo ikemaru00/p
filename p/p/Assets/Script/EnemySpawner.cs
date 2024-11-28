@@ -26,14 +26,17 @@ public class EnemySpawner : MonoBehaviour
     }
     private void _Spawn()
     {
-        if (_spawnNum > _enemy.Length - 1) return;
-
+        if (_spawnNum > _enemy.Length - 1)return;
+         
         _spawnCount += Time.deltaTime;
         if (_spawnCount >= _spawnTime[_spawnNum])
         {
+            
             Instantiate(_enemy[_spawnNum]);
             _spawnNum++;
             _spawnCount = 0.0f;
+
+            
         }
     }
 }

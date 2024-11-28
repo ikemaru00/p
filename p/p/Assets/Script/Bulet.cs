@@ -40,4 +40,8 @@ public class Bulet : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    public int GetPower()
+    {
+        return _power;
+    }
 }
