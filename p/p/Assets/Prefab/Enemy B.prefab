@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 5633511414623197030}
   - component: {fileID: 7801951574977202714}
   - component: {fileID: 5315651053364875329}
-  - component: {fileID: 7954095870826515001}
   - component: {fileID: 8126137718198460203}
+  - component: {fileID: 2844547855831282593}
   m_Layer: 7
   m_Name: Enemy B
   m_TagString: Enemy
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 5559384653745853838}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -150,25 +150,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &7954095870826515001
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5559384653745853838}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5796b19ddb84bf4d873decc228f8409, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _bullet:
-  - {fileID: 0}
-  _shootTime: 0
-  _hp: 3
-  _moveSpeed: 4
-  _damageEffectTime: 0.1
-  _damageSprite: {fileID: 0}
 --- !u!114 &8126137718198460203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,3 +162,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2473571b362a6a54e848060e4caac9eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2844547855831282593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5559384653745853838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd7f747d3d035fe418f64c5362b9c182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bullet: []
+  _shootTime: 0
+  _hp: 3
+  _moveSpeed: 4
+  _damageEffectTime: 0.1
+  _damageSprite: {fileID: -7844560889915226194, guid: 138040323294fd440a3a823e5d70ad01, type: 3}

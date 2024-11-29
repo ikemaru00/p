@@ -16,10 +16,12 @@ public class Enemy : MonoBehaviour
     private float _damageEffectTime;
     [SerializeField, Header("ダメージ時の画像")]
     private Sprite _damageSprite;
-
+    [SerializeField, Header("死亡エフェクト")]
+    private GameObject _deadEffect;
 
     protected GameObject _player;
     protected Rigidbody2D _rigid;
+    protected Vector2 _moveVec;
     protected float _shootCount;
     protected bool _bAttack;
 
@@ -38,7 +40,8 @@ public class Enemy : MonoBehaviour
         _bAttack = false;
         _rigid = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
-        _defaultSprite = _spriteRenderer.sprite; 
+        _defaultSprite = _spriteRenderer.sprite;
+        _moveVec = Vector2.down;
         _Initialize();
     }
     protected virtual void _Initialize()
@@ -66,13 +69,14 @@ public class Enemy : MonoBehaviour
             StartCoroutine(_Damage());
             if (_hp <= 0)
             {
+
                 Destroy(gameObject);
             }
         }
     }
     protected virtual void _Move()
     {
-        _rigid.velocity = Vector2.down *  _moveSpeed;
+        _rigid.velocity = _moveVec *  _moveSpeed;
     }
     private void OnWillRenderObject()
     {

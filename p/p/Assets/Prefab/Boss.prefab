@@ -163,20 +163,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bullet:
   - {fileID: 605993979015645875, guid: 1bcd71275e4f2c945a25a66eee2a3194, type: 3}
+  - {fileID: 8698755672380714450, guid: f081aabb95f5cfe409c589c4cadfe065, type: 3}
+  - {fileID: 6711006353205793968, guid: 5ba3cad34a2650b4a889342e57f925f8, type: 3}
+  - {fileID: 8827211865303099550, guid: 657f1e30d6d17014a8a3228992dbeb3c, type: 3}
   _shootTime: 2.5
-  _hp: 20
+  _hp: 50
   _moveSpeed: 3
-  _damageEffectTime: 1
-  _damageSprite: {fileID: 0}
-  _limitPoyY: 0
+  _damageEffectTime: 0.1
+  _damageSprite: {fileID: -7945901444079236628, guid: 138040323294fd440a3a823e5d70ad01, type: 3}
+  _deadEffect: {fileID: 0}
+  _limitPoyY: 2.5
   _normalAttackCount: 2
-  _ougiBulleNum: 0
-  _ougiAngle: 0
-  _ougiAttackCount: 0
-  _LRAttackTime: 0
-  _LRShootTime: 0
-  _LRRange: 0
-  _LRSpeed: 0
-  _circleBulletNum: 0
-  _circleShootTime: 0
-  _circleBulletTime: 0
+  _ougiBulleNum: 6
+  _ougiAngle: 90
+  _ougiAttackCount: 3
+  _LRAttackTime: 15
+  _LRShootTime: 0.2
+  _LRRange: 100
+  _LRSpeed: 10
+  _circleBulletNum: 30
+  _circleShootTime: 10
+  _circleBulletTime: 0.5
