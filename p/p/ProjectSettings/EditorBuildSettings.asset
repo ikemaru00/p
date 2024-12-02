@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/taitle.unity
     guid: 2cd5ce6405f12304981c1a836d36fc30
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 1bf2ece9f4930944faa8c092d406f4bd
   m_configObjects: {}

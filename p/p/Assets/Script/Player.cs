@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -51,6 +52,9 @@ public class Player : MonoBehaviour
         _Move();
         _Shooting();
         _Damage();
+
+           // Debug.Log(_hp);
+        
     }
     private void _Move()
     {
@@ -111,6 +115,15 @@ public class Player : MonoBehaviour
             Instantiate(_deadEffect, transform.position, Quaternion.identity);
             _gameManager.DeadEffect();
             _shaker.GenerateImpulse();
+
+            Debug.Log(_hp);
+            if (_hp <= 0)
+            {
+              
+                    SceneManager.LoadScene("GameOver");
+                
+            }
+          
         }
 
     }
