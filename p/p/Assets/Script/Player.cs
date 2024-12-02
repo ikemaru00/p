@@ -52,7 +52,8 @@ public class Player : MonoBehaviour
         _Move();
         _Shooting();
         _Damage();
-
+        if (_hp <= 0)
+            StartCoroutine(Defeat());
            // Debug.Log(_hp);
         
     }
@@ -109,22 +110,19 @@ public class Player : MonoBehaviour
         }
 
         _bDamege = true;
-        if (_hp <= 0)
-        {
-            Destroy(gameObject);
-            Instantiate(_deadEffect, transform.position, Quaternion.identity);
-            _gameManager.DeadEffect();
-            _shaker.GenerateImpulse();
+        
+    }
 
-            Debug.Log(_hp);
-            if (_hp <= 0)
-            {
-              
-                    SceneManager.LoadScene("GameOver");
+    IEnumerator Defeat()
+    {
+        Instantiate(_deadEffect, transform.position, Quaternion.identity);
+        _gameManager.DeadEffect();
+        _shaker.GenerateImpulse();
                 
-            }
-          
-        }
+        yield return new WaitForSeconds(2.0f);
+
+        SceneManager.LoadScene("GameOver");
+        Destroy(gameObject);
 
     }
 

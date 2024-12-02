@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class Boss : Enemy
 {
     [SerializeField, Header("ˆÚ“®”ÍˆÍ")]
@@ -28,7 +28,7 @@ public class Boss : Enemy
     private float _circleShootTime;
     [SerializeField, Header("‰~Œ`‚É’e‚ğ”­Ë‚·‚éŠÔ•")]
     private float _circleBulletTime;
-
+   
     enum AttackMode
     {
         Normal,

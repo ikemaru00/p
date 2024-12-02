@@ -167,7 +167,7 @@ MonoBehaviour:
   - {fileID: 6711006353205793968, guid: 5ba3cad34a2650b4a889342e57f925f8, type: 3}
   - {fileID: 8827211865303099550, guid: 657f1e30d6d17014a8a3228992dbeb3c, type: 3}
   _shootTime: 2.5
-  _hp: 50
+  _hp: 0
   _moveSpeed: 3
   _damageEffectTime: 0.1
   _damageSprite: {fileID: -7945901444079236628, guid: 138040323294fd440a3a823e5d70ad01, type: 3}
@@ -184,3 +184,4 @@ MonoBehaviour:
   _circleBulletNum: 30
   _circleShootTime: 10
   _circleBulletTime: 0.5
+  _boosHP: 2

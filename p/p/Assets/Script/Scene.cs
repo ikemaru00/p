@@ -7,6 +7,12 @@ public class Scene : MonoBehaviour
 {
   public void Scene_button()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Stage");
+        
+    }
+    public void Scene_Taitle()
+    {
+        SceneManager.LoadScene("taitle");
+
     }
 }
