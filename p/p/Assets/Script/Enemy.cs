@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class Enemy : MonoBehaviour
 {
     [SerializeField, Header("弾オブジェクト")]
@@ -28,7 +28,6 @@ public class Enemy : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     private Sprite _defaultSprite;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +43,8 @@ public class Enemy : MonoBehaviour
         _moveVec = Vector2.down;
         _Initialize();
     }
+
+    private GameObject[] enemyBox;
     protected virtual void _Initialize()
     {
 
@@ -52,6 +53,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+      
         _Move();
         _Attack();
     }

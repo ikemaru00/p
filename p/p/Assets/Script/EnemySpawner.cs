@@ -6,9 +6,12 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField, Header("敵のオブジェクト")]
     private GameObject[] _enemy;
+    
     [SerializeField, Header("敵を生成する時間")]
     private float[] _spawnTime;
 
+    public GameObject _EnemySpo;
+    
     private float _spawnCount;
     private int _spawnNum;
     
@@ -36,7 +39,15 @@ public class EnemySpawner : MonoBehaviour
             _spawnNum++;
             _spawnCount = 0.0f;
 
-            
+
+            if(_spawnNum > 6)
+            {
+                Debug.Log("a");
+                Destroy(_EnemySpo);
+            }
         }
+        
+        
+
     }
 }
