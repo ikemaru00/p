@@ -4,23 +4,27 @@ using UnityEngine;
 using UnityEngine.UI; //UI機能を扱うときに追記する
 public class ScoreScript : MonoBehaviour
 {
-    private int Score; //得点の変数
-    public Text ScoreText; //得点の文字の変数
+    public static ScoreScript Instance;
 
-    // Start is called before the first frame update
-    void Start()
+    public int score = 0;
+
+    private void Awake()
     {
-        Score = 0; //得点を0にする
+        // シングルトンパターンの設定
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject); // シーンをまたいでも削除されない
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void AddScore(int points)
     {
-        ScoreText.text = "Score:" + Score.ToString(); //ScoreTextの文字をScore:Scoreの値にする
-
-        if (Input.GetKey(KeyCode.Space)) //もし、スペースキーがおされたら、
-        {
-            Score += 1000; //Scoreを1000ずつ変える
-        }
+        score += points;
+        Debug.Log("Current Score: " + score);
     }
 }

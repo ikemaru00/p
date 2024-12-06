@@ -10,7 +10,7 @@ public class GameClear : MonoBehaviour
     {
         enemyBox = GameObject.FindGameObjectsWithTag("Enemy");
 
-        print("“G‚Ì”F" + enemyBox.Length);
+        //print("“G‚Ì”F" + enemyBox.Length);
 
         if (enemyBox.Length == 0)
         {

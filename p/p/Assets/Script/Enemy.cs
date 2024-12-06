@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class Enemy : MonoBehaviour
 {
+    public int scoreValue = 10; // この敵を倒したときのスコア
+
     [SerializeField, Header("弾オブジェクト")]
     protected GameObject[] _bullet;
     [SerializeField, Header("弾を発射する時間")]
@@ -71,8 +73,13 @@ public class Enemy : MonoBehaviour
             StartCoroutine(_Damage());
             if (_hp <= 0)
             {
+                ScoreScript.Instance.AddScore(scoreValue);
+                int currentScore = PlayerPrefs.GetInt("Score", 0);
+                currentScore += scoreValue;
+                PlayerPrefs.SetInt("Score", currentScore); // スコアを保存
 
                 Destroy(gameObject);
+
             }
         }
     }

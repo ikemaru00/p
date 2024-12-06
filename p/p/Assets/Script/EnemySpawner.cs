@@ -42,7 +42,7 @@ public class EnemySpawner : MonoBehaviour
 
             if(_spawnNum > 6)
             {
-                Debug.Log("a");
+               // Debug.Log("a");
                 Destroy(_EnemySpo);
             }
         }

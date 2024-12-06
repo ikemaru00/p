@@ -40,7 +40,7 @@ public class Player : MonoBehaviour
         _rigid = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _gameManager = FindObjectOfType<GameManager>();
-        _shaker = FindAnyObjectByType<CinemachineImpulseSource>();
+        _shaker = FindObjectOfType<CinemachineImpulseSource>();
         _shootCount = 0;
         _damageTimeCount = 0;
         _bDamege = false;

@@ -13,6 +13,11 @@ public class Scene : MonoBehaviour
     public void Scene_Taitle()
     {
         SceneManager.LoadScene("taitle");
-
+      
+    }
+    public void LoadNextScene()
+    {
+        SceneManager.LoadScene("Clear");
+        PlayerPrefs.DeleteKey("Score"); // ƒXƒRƒA‚¾‚¯íœ
     }
 }
