@@ -182,3 +182,4 @@ MonoBehaviour:
   _damageEffectTime: 0.1
   _damageSprite: {fileID: 4326287474489854147, guid: 138040323294fd440a3a823e5d70ad01, type: 3}
   _deadEffect: {fileID: 302536292252513547, guid: e012905e8b247224496251ee40b7ede8, type: 3}
+  _Bosshp: 20

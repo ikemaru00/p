@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class Enemy : MonoBehaviour
 {
-    public int scoreValue = 10; // この敵を倒したときのスコア
+    private int scoreValue = 10; // この敵を倒したときのスコア
+    private int scoreBoss = 100; // この敵を倒したときのスコア
 
     [SerializeField, Header("弾オブジェクト")]
     protected GameObject[] _bullet;
@@ -29,6 +30,10 @@ public class Enemy : MonoBehaviour
 
     private SpriteRenderer _spriteRenderer;
     private Sprite _defaultSprite;
+
+    [SerializeField, Header("体力ボス")]
+    private int _Bosshp;
+
 
     // Start is called before the first frame update
     void Start()
@@ -70,6 +75,7 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.tag == "Bullet")
         {
             _hp -= collision.gameObject.GetComponent<Bulet>().GetPower();
+            _Bosshp-= collision.gameObject.GetComponent<Bulet>().GetPower();
             StartCoroutine(_Damage());
             if (_hp <= 0)
             {
@@ -77,10 +83,22 @@ public class Enemy : MonoBehaviour
                 int currentScore = PlayerPrefs.GetInt("Score", 0);
                 currentScore += scoreValue;
                 PlayerPrefs.SetInt("Score", currentScore); // スコアを保存
-
                 Destroy(gameObject);
 
             }
+
+            else if(_Bosshp <= 0)
+            { 
+            
+                ScoreScript.Instance.AddScore(scoreBoss);
+                int BoosScoar = PlayerPrefs.GetInt("Score", 0);
+                BoosScoar += scoreBoss;
+                PlayerPrefs.SetInt("Score", BoosScoar); // スコアを保存       Destroy(gameObject);
+                Destroy(gameObject);
+                
+
+            }
+
         }
     }
     protected virtual void _Move()
@@ -94,7 +112,7 @@ public class Enemy : MonoBehaviour
             _bAttack = true;
         }
     }
-    private IEnumerator _Damage()
+    public IEnumerator _Damage()
     {
         _spriteRenderer.sprite = _damageSprite;
         yield return new WaitForSeconds(_damageEffectTime);

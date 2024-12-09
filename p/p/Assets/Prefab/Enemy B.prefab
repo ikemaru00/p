@@ -174,7 +174,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd7f747d3d035fe418f64c5362b9c182, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreValue: 10
   _bullet: []
   _shootTime: 0
   _hp: 2
@@ -182,3 +181,4 @@ MonoBehaviour:
   _damageEffectTime: 0.1
   _damageSprite: {fileID: -7844560889915226194, guid: 138040323294fd440a3a823e5d70ad01, type: 3}
   _deadEffect: {fileID: 302536292252513547, guid: e012905e8b247224496251ee40b7ede8, type: 3}
+  _Bosshp: 20

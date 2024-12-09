@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class Boss : Enemy
 {
+
     [SerializeField, Header("ˆÚ“®”ÍˆÍ")]
     private float _limitPoyY;
     [SerializeField, Header("’ÊíUŒ‚‰ñ”")]
@@ -28,7 +29,8 @@ public class Boss : Enemy
     private float _circleShootTime;
     [SerializeField, Header("‰~Œ`‚É’e‚ğ”­Ë‚·‚éŠÔ•")]
     private float _circleBulletTime;
-   
+
+
     enum AttackMode
     {
         Normal,
@@ -45,6 +47,7 @@ public class Boss : Enemy
 
     protected override void _Initialize()
     {
+       
         _currentAttackCount = 0;
         _attackMode = AttackMode.Normal;
         _rotateZ = 0f;
