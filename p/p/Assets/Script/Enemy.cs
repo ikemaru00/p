@@ -30,6 +30,7 @@ public class Enemy : MonoBehaviour
 
     private SpriteRenderer _spriteRenderer;
     private Sprite _defaultSprite;
+    public GameManager _gameManager;
 
     [SerializeField, Header("体力ボス")]
     private int _Bosshp;
@@ -46,6 +47,7 @@ public class Enemy : MonoBehaviour
         _bAttack = false;
         _rigid = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _gameManager = FindObjectOfType<GameManager>();
         _defaultSprite = _spriteRenderer.sprite;
         _moveVec = Vector2.down;
         _Initialize();
@@ -84,7 +86,7 @@ public class Enemy : MonoBehaviour
                 currentScore += scoreValue;
                 PlayerPrefs.SetInt("Score", currentScore); // スコアを保存
                 Destroy(gameObject);
-
+             
             }
 
             else if(_Bosshp <= 0)
@@ -95,7 +97,7 @@ public class Enemy : MonoBehaviour
                 BoosScoar += scoreBoss;
                 PlayerPrefs.SetInt("Score", BoosScoar); // スコアを保存       Destroy(gameObject);
                 Destroy(gameObject);
-                
+               
 
             }
 

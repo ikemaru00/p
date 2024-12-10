@@ -32,6 +32,6 @@ public class GameManager : MonoBehaviour
 
         yield return new WaitForSecondsRealtime(_desaEffectTime);
 
-            Time.timeScale = 1.0f;
+        Time.timeScale = 1.0f;
     }
 }

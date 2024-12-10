@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
     private Vector2 _inputVelocity;
     private Rigidbody2D _rigid;
     private SpriteRenderer _spriteRenderer;
-    private GameManager _gameManager;
+    public GameManager _gameManager;
     private CinemachineImpulseSource _shaker;
     private float _shootCount;
     private float _damageTimeCount;
@@ -44,7 +44,8 @@ public class Player : MonoBehaviour
         _shootCount = 0;
         _damageTimeCount = 0;
         _bDamege = false;
-        
+
+
     }
     // Update is called once per frame
     void Update()

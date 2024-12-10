@@ -8,10 +8,13 @@ public class ScoarText : MonoBehaviour
 {
     public Text scoreText; // UIのTextコンポーネントをアタッチする
 
+  
     private void Start()
     {
         int loadedScore = PlayerPrefs.GetInt("Score", 0);
+
         scoreText.text = "Score: " + loadedScore;
+        
     }
 
     private void Update()
