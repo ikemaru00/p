@@ -81,11 +81,14 @@ public class Enemy : MonoBehaviour
             StartCoroutine(_Damage());
             if (_hp <= 0)
             {
+                
                 ScoreScript.Instance.AddScore(scoreValue);
-                int currentScore = PlayerPrefs.GetInt("Score", 0);
-                currentScore += scoreValue;
-                PlayerPrefs.SetInt("Score", currentScore); // スコアを保存
+                //int currentScore = PlayerPrefs.GetInt("Score", 0);
+                //currentScore += scoreValue;
+                //PlayerPrefs.SetInt("Score", currentScore); // スコアを保存
                 Destroy(gameObject);
+                Instantiate(_deadEffect,transform.position, Quaternion.identity);
+              
              
             }
 
@@ -93,11 +96,12 @@ public class Enemy : MonoBehaviour
             { 
             
                 ScoreScript.Instance.AddScore(scoreBoss);
-                int BoosScoar = PlayerPrefs.GetInt("Score", 0);
-                BoosScoar += scoreBoss;
-                PlayerPrefs.SetInt("Score", BoosScoar); // スコアを保存       Destroy(gameObject);
-                Destroy(gameObject);
-               
+                //int BoosScoar = PlayerPrefs.GetInt("Score", 0);
+                //BoosScoar += scoreBoss;
+                //PlayerPrefs.SetInt("Score", BoosScoar); // スコアを保存
+                Destroy(gameObject);               
+                Instantiate(_deadEffect,transform.position, Quaternion.identity);
+             
 
             }
 

@@ -26,5 +26,7 @@ public class ScoreScript : MonoBehaviour
     {
         score += points;
         Debug.Log("Current Score: " + score);
+        PlayerPrefs.SetInt("Score", score);
+        PlayerPrefs.Save();
     }
 }

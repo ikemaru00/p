@@ -12,9 +12,10 @@ public class GameClear : MonoBehaviour
 
         //print("“G‚Ì”F" + enemyBox.Length);
 
+
         if (enemyBox.Length == 0)
         {
-
+            PlayerPrefs.Save();
             SceneManager.LoadScene("Clear");
         }
     }

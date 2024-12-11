@@ -6,10 +6,11 @@ using UnityEngine.UI;
 
 public class ScoarText : MonoBehaviour
 {
-    public Text scoreText; // UIのTextコンポーネントをアタッチする
+    public  Text scoreText; // UIのTextコンポーネントをアタッチする
+    
 
   
-    private void Start()
+    public void Start()
     {
         int loadedScore = PlayerPrefs.GetInt("Score", 0);
 
@@ -22,4 +23,5 @@ public class ScoarText : MonoBehaviour
         // スコアを画面に表示
         scoreText.text = "Score: " + ScoreScript.Instance.score;
     }
+   
 }
