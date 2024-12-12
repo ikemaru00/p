@@ -5,18 +5,23 @@ using UnityEngine.SceneManagement;
 public class GameClear : MonoBehaviour
 {
     private GameObject[] enemyBox;
-
     void Update()
     {
         enemyBox = GameObject.FindGameObjectsWithTag("Enemy");
 
         //print("“G‚Ì”F" + enemyBox.Length);
 
-
         if (enemyBox.Length == 0)
         {
             PlayerPrefs.Save();
-            SceneManager.LoadScene("Clear");
+            StartCoroutine(Defeat());
         }
+
+    }
+    IEnumerator Defeat()
+    {
+       // Debug.Log("“ü‚Á‚½");
+        yield return new WaitForSeconds(2.0f);
+        SceneManager.LoadScene("Clear");
     }
 }

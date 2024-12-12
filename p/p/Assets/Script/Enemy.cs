@@ -39,6 +39,7 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         if (FindObjectOfType<Player>())
         {
             _player = FindObjectOfType<Player>().gameObject;
@@ -62,7 +63,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      
+       
         _Move();
         _Attack();
     }
@@ -83,9 +84,9 @@ public class Enemy : MonoBehaviour
             {
                 
                 ScoreScript.Instance.AddScore(scoreValue);
-                //int currentScore = PlayerPrefs.GetInt("Score", 0);
-                //currentScore += scoreValue;
-                //PlayerPrefs.SetInt("Score", currentScore); // スコアを保存
+                int currentScore = PlayerPrefs.GetInt("Score", 0);
+                currentScore += scoreValue;
+                PlayerPrefs.SetInt("Score", currentScore); // スコアを保存
                 Destroy(gameObject);
                 Instantiate(_deadEffect,transform.position, Quaternion.identity);
               
@@ -93,16 +94,16 @@ public class Enemy : MonoBehaviour
             }
 
             else if(_Bosshp <= 0)
-            { 
-            
+            {
+                //Debug.Log(_Bosshp);
                 ScoreScript.Instance.AddScore(scoreBoss);
-                //int BoosScoar = PlayerPrefs.GetInt("Score", 0);
-                //BoosScoar += scoreBoss;
-                //PlayerPrefs.SetInt("Score", BoosScoar); // スコアを保存
-                Destroy(gameObject);               
+                int BoosScoar = PlayerPrefs.GetInt("Score", 0);
+                BoosScoar += scoreBoss;
+                PlayerPrefs.SetInt("Score", BoosScoar); // スコアを保
+                Destroy(gameObject);
                 Instantiate(_deadEffect,transform.position, Quaternion.identity);
-             
 
+               
             }
 
         }
@@ -124,5 +125,6 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(_damageEffectTime);
         _spriteRenderer.sprite = _defaultSprite;
     }
+   
 
 }

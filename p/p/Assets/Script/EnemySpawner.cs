@@ -18,6 +18,7 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+       
         _spawnCount = 0.0f;
         _spawnNum = 0;
     }
@@ -25,6 +26,11 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //if (_spawnNum > 5)
+        //{
+        //    Debug.Log("ŽžŠÔ");
+        //    StartCoroutine(Defeat());
+        //}
         _Spawn();
     }
     private void _Spawn()
@@ -34,7 +40,7 @@ public class EnemySpawner : MonoBehaviour
         _spawnCount += Time.deltaTime;
         if (_spawnCount >= _spawnTime[_spawnNum])
         {
-            
+            Debug.Log(_spawnNum);
             Instantiate(_enemy[_spawnNum]);
             _spawnNum++;
             _spawnCount = 0.0f;
@@ -42,13 +48,17 @@ public class EnemySpawner : MonoBehaviour
 
             if(_spawnNum > 6)
             {
-
-               // Debug.Log("a");
+                StartCoroutine(Defeat());
+                
                 Destroy(_EnemySpo);
             }
         }
-        
-        
 
+      
+    }
+    IEnumerator Defeat()
+    {
+        //Debug.Log("“ü‚Á‚½");
+        yield return new WaitForSeconds(5.0f);
     }
 }
